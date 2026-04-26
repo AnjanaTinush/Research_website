@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const MilestoneCard = ({ isLeft, date, title, description, isCompleted, index }) => {
+const MilestoneCard = ({ isLeft, date, title, description, marks, progress, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.6, once: false });
 
@@ -16,18 +16,42 @@ const MilestoneCard = ({ isLeft, date, title, description, isCompleted, index })
         transition={{ duration: 0.5 }}
         className="w-[45%] flex flex-col items-center"
       >
-        <div className={`p-10 rounded-[2.5rem] w-full border transition-all duration-500 group ${
+        <div className={`p-10 rounded-[2.5rem] w-full border transition-all duration-500 group relative ${
           isInView 
-            ? 'bg-white border-primary/40 ' 
+            ? 'bg-white border-primary/40 shadow-xl' 
             : 'bg-white/50 border-gray-100 opacity-50'
         }`}>
-          <p className={`font-bold mb-3 tracking-wider transition-colors ${isInView ? 'text-primary' : 'text-textSecondary'}`}>
-            {date}
-          </p>
+          <div className="flex justify-between items-start mb-3">
+            <p className={`font-bold tracking-wider transition-colors ${isInView ? 'text-primary' : 'text-textSecondary'}`}>
+              {date}
+            </p>
+            {marks && (
+              <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                {marks} Marks
+              </span>
+            )}
+          </div>
           <h4 className={`font-bold text-2xl mb-4 transition-colors ${isInView ? 'text-textPrimary' : 'text-textSecondary'}`}>
             {title}
           </h4>
-          <p className="text-textSecondary leading-relaxed opacity-80">{description}</p>
+          <p className="text-textSecondary leading-relaxed opacity-80 mb-4">{description}</p>
+          
+          {progress && (
+            <div className="pt-4 border-t border-gray-100">
+              <div className="flex justify-between items-center mb-1.5Caps">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-textSecondary">Overall Progress</span>
+                <span className="text-xs font-black text-primary">{progress}</span>
+              </div>
+              <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: isInView ? progress : 0 }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                  className="h-full bg-primary"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -57,10 +81,69 @@ const MilestoneCard = ({ isLeft, date, title, description, isCompleted, index })
 
 const Milestones = () => {
   const milestones = [
-    { date: 'Nov 2024', title: 'Progress Report I', description: 'Initial project validation at 50% completion across all metrics.', isCompleted: true },
-    { date: 'Jan 2025', title: 'Progress Report II', description: 'Advanced system validation at 90% implementation stage.', isCompleted: true },
-    { date: 'Mar 2025', title: 'Alpha Release', description: 'Deployment of core predictive model in testing environment.', isCompleted: false },
-    { date: 'May 2025', title: 'Final Submission', description: 'Complete system optimization and research documentation.', isCompleted: false },
+    { 
+      date: 'September 2025', 
+      title: 'Project Proposal', 
+      description: 'The Project Proposal outlines the research idea, objectives, and initial approach. Reviewers identify limitations and refine project direction.', 
+      marks: '12',
+      progress: '12%'
+    },
+    { 
+      date: 'January 2026', 
+      title: 'Progress Presentation I', 
+      description: 'Evaluates 50% completion. Focuses on identifying gaps, validating design, and ensuring progress aligns with requirements.', 
+      marks: '15',
+      progress: '27%'
+    },
+    { 
+      date: 'March 2026', 
+      title: 'Progress Presentation II', 
+      description: 'Reviews 90% completion, including a system demonstration and poster presentation to communicate research contributions.', 
+      marks: '18',
+      progress: '37%'
+    },
+    { 
+      date: 'April 2026', 
+      title: 'Research Paper', 
+      description: 'Highlights project contributions and references related work. Presents methodology, findings, and research innovations.', 
+      marks: '10',
+      progress: '55%'
+    },
+    { 
+      date: 'April 2026', 
+      title: 'Website Assessment', 
+      description: 'Showcases all research aspects, objectives, methodology, and results in a clear and accessible digital format.', 
+      marks: '2',
+      progress: '57%'
+    },
+    { 
+      date: 'May 2026', 
+      title: 'Final Presentation & Viva', 
+      description: 'Assessment of the complete system and individual technical understanding and overall implementation.', 
+      marks: '20',
+      progress: '77%'
+    },
+    { 
+      date: 'May 2026', 
+      title: 'Final Report', 
+      description: 'Comprehensive documentation of the entire project including system design, implementation, and evaluation.', 
+      marks: '19',
+      progress: '96%'
+    },
+    { 
+      date: 'May 2026', 
+      title: 'Checklist Reports', 
+      description: 'Used to track project progress at key stages, particularly at 50% and 90% completion.', 
+      marks: '2',
+      progress: '98%'
+    },
+    { 
+      date: 'May 2026', 
+      title: 'Logbook', 
+      description: 'Documents project progress throughout the year, including supervisor meetings and group development activities.', 
+      marks: '2',
+      progress: '100%'
+    },
   ];
 
   return (
