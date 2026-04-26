@@ -1,28 +1,19 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const MilestoneCard = ({ isLeft, date, title, description, marks, progress, index }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.6, once: false });
-
+const MilestoneCard = ({ isLeft, date, title, description, marks, progress }) => {
   return (
-    <div className={`flex w-full mb-24 items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`} ref={ref}>
+    <div className={`flex w-full mb-32 items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
       <motion.div 
-        animate={{ 
-          opacity: isInView ? 1 : 0.4, 
-          scale: isInView ? 1 : 0.95,
-          x: isInView ? 0 : (isLeft ? -20 : 20)
-        }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="w-[45%] flex flex-col items-center"
       >
-        <div className={`p-10 rounded-[2.5rem] w-full border transition-all duration-500 group relative ${
-          isInView 
-            ? 'bg-white border-primary/40 shadow-xl' 
-            : 'bg-white/50 border-gray-100 opacity-50'
-        }`}>
+        <div className="p-10 rounded-[2.5rem] w-full border bg-white border-primary/20 group relative">
           <div className="flex justify-between items-start mb-3">
-            <p className={`font-bold tracking-wider transition-colors ${isInView ? 'text-primary' : 'text-textSecondary'}`}>
+            <p className="font-bold tracking-wider text-primary">
               {date}
             </p>
             {marks && (
@@ -31,22 +22,29 @@ const MilestoneCard = ({ isLeft, date, title, description, marks, progress, inde
               </span>
             )}
           </div>
-          <h4 className={`font-bold text-2xl mb-4 transition-colors ${isInView ? 'text-textPrimary' : 'text-textSecondary'}`}>
+          <h4 className="font-bold text-2xl mb-4 text-textPrimary">
             {title}
           </h4>
-          <p className="text-textSecondary leading-relaxed opacity-80 mb-4">{description}</p>
+          <p className="text-textSecondary opacity-80 leading-relaxed mb-4">
+            {description}
+          </p>
           
           {progress && (
             <div className="pt-4 border-t border-gray-100">
-              <div className="flex justify-between items-center mb-1.5Caps">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-textSecondary">Overall Progress</span>
-                <span className="text-xs font-black text-primary">{progress}</span>
+              <div className="flex justify-between items-center mb-1.5">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-textSecondary">
+                  Overall Progress
+                </span>
+                <span className="text-xs font-black text-primary">
+                  {progress}
+                </span>
               </div>
               <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
-                  animate={{ width: isInView ? progress : 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
+                  whileInView={{ width: progress }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.3 }}
                   className="h-full bg-primary"
                 />
               </div>
@@ -56,21 +54,14 @@ const MilestoneCard = ({ isLeft, date, title, description, marks, progress, inde
       </motion.div>
 
       {/* Center Circle */}
-      <div className="w-[10%] flex justify-center sticky top-1/2">
+      <div className="w-[10%] flex justify-center z-20">
         <motion.div 
-          animate={{ 
-            scale: isInView ? 1.4 : 1,
-            backgroundColor: isInView ? '#84006A' : '#FFFFFF',
-          }}
-          className={`w-12 h-12 rounded-full flex items-center justify-center border-4 border-backgroundDefault transition-all`}
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          className="w-10 h-10 rounded-full flex items-center justify-center border-4 border-backgroundDefault bg-primary shadow-lg"
         >
-          <motion.div 
-            animate={{ 
-              backgroundColor: isInView ? '#FFFFFF' : '#D1D5DB',
-              scale: isInView ? 1.2 : 0.8
-            }}
-            className="w-2.5 h-2.5 rounded-full" 
-          />
+          <div className="w-2 h-2 rounded-full bg-white" />
         </motion.div>
       </div>
 
@@ -147,8 +138,8 @@ const Milestones = () => {
   ];
 
   return (
-    <section id="milestones" className="section-padding bg-surfaceLight overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="milestones" className="py-24 bg-surfaceLight overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-5xl font-black mb-32 text-textPrimary text-center tracking-tighter">
           PROJECT <span className="text-primary italic">MILESTONES</span>
         </h2>

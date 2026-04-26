@@ -30,21 +30,12 @@ const ProblemSolution = () => {
           <div className="flex-1 space-y-8">
             <h3 className="text-3xl font-bold text-textPrimary">The Problem</h3>
             <p className="text-textSecondary text-lg leading-relaxed text-justify">
-              Modern Kubernetes autoscaling relies mainly on CPU and memory metrics, without understanding the nature of incoming traffic. Because of this, systems cannot distinguish between real user demand and abnormal or malicious traffic, often leading to unnecessary scaling, increased costs, and reduced system stability.
-            </p>
-            <p className="text-textSecondary text-lg leading-relaxed text-justify">
-              In addition, existing approaches lack integration between anomaly detection, predictive models, and execution layers. Scaling decisions are made without validating their impact, making systems less reliable in dynamic microservice environments.
+              Modern Kubernetes autoscaling depends mainly on CPU and memory metrics, without understanding traffic behavior. This makes it difficult to distinguish between real demand and abnormal or malicious activity, leading to unnecessary scaling, higher costs, and reduced system stability.
             </p>
 
             <h3 className="text-3xl font-bold text-textPrimary mt-8">Proposed Solution</h3>
             <p className="text-textSecondary text-lg leading-relaxed text-justify">
-              To address this, this research proposes a <strong>Threat-Aware Proactive Autoscaling System</strong> that combines multi-layer observability, machine learning, and intelligent validation. The system collects rich metrics across nodes, pods, applications, and service mesh interactions, and uses anomaly detection to filter abnormal traffic before making scaling decisions.
-            </p>
-            <p className="text-textSecondary text-lg leading-relaxed text-justify">
-              A predictive model then forecasts future resource requirements, enabling proactive scaling. Before applying any action, a validation layer tests the decision in a controlled environment and evaluates system stability. Only safe and reliable scaling actions are executed, while unsafe ones are rolled back.
-            </p>
-            <p className="text-textSecondary text-lg leading-relaxed text-justify italic font-medium">
-              This approach ensures smarter, more secure, and efficient autoscaling for modern cloud-native systems.
+              To solve this, the research proposes a Threat-Aware Proactive Autoscaling System that combines multi-layer metrics, anomaly detection, and predictive modeling. Scaling decisions are validated in a controlled environment before execution, ensuring only safe and reliable actions are applied, resulting in smarter and more efficient autoscaling.
             </p>
           </div>
         </div>

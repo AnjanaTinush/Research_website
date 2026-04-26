@@ -46,7 +46,7 @@ function App() {
         <AnimatedSection><ProblemSolution /></AnimatedSection>
         <AnimatedSection><ResearchObjectives /></AnimatedSection>
         <AnimatedSection><Methodology /></AnimatedSection>
-        <AnimatedSection><Milestones /></AnimatedSection>
+        <Milestones />
         <AnimatedSection><Resources /></AnimatedSection>
         <AnimatedSection><Technologies /></AnimatedSection>
         <AnimatedSection><AboutUs /></AnimatedSection>
