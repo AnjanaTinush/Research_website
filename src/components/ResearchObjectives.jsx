@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Search, BarChart3, Settings2 } from 'lucide-react';
+import { Target, Search, BarChart3, Settings2, ShieldCheck, Database, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ObjectiveCard = ({ icon: Icon, title, description, index }) => {
@@ -9,7 +9,7 @@ const ObjectiveCard = ({ icon: Icon, title, description, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="p-10 glass-card bg-white hover:border-primary/40 hover:bg-white transition-all group"
+      className="p-10 glass-card bg-white hover:border-primary/40 hover:bg-white transition-all group flex flex-col h-full w-full"
     >
       <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/10 transition-colors">
         <Icon size={32} className="text-primary group-hover:scale-110 transition-transform" />
@@ -22,10 +22,31 @@ const ObjectiveCard = ({ icon: Icon, title, description, index }) => {
 
 const ResearchObjectives = () => {
   const objectives = [
-    { icon: Search, title: 'Identification', description: 'Accurate identification of microservice dependencies and traffic patterns.' },
-    { icon: BarChart3, title: 'Prediction', description: 'Advanced time-series forecasting for predicting future resource demands.' },
-    { icon: Target, title: 'Optimization', description: 'Topology-aware scaling decisions to minimize inter-service latency.' },
-    { icon: Settings2, title: 'Stability', description: 'Maintaining cluster stability and performance during rapid scaling events.' },
+    { 
+      icon: Database, 
+      title: 'Comprehensive Metrics Collection', 
+      description: 'Collect and process multi-layer metrics from nodes, pods, applications, and service mesh to fully understand system behavior in real time.' 
+    },
+    { 
+      icon: BarChart3, 
+      title: 'Predictive Autoscaling', 
+      description: 'Use time-series models to forecast future workload demand and enable proactive resource scaling.' 
+    },
+    { 
+      icon: ShieldCheck, 
+      title: 'Validation-Based Scaling Execution', 
+      description: 'Introduce a validation layer to test scaling decisions under stress conditions and ensure only safe actions are applied.' 
+    },
+    { 
+      icon: Target, 
+      title: 'Anomaly-Aware Traffic Detection', 
+      description: 'Develop machine learning models to identify abnormal or malicious traffic patterns and prevent incorrect scaling decisions.' 
+    },
+    { 
+      icon: Zap, 
+      title: 'Efficient and Reliable Resource Management', 
+      description: 'Optimize resource usage by combining intelligent prediction, anomaly filtering, and validation to improve system stability and cost efficiency.' 
+    },
   ];
 
   return (
@@ -35,9 +56,11 @@ const ResearchObjectives = () => {
           <span className="blue-underline text-textPrimary">Research Objectives</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-8 px-4">
           {objectives.map((obj, i) => (
-            <ObjectiveCard key={i} index={i} {...obj} />
+            <div key={i} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm flex">
+              <ObjectiveCard index={i} {...obj} />
+            </div>
           ))}
         </div>
       </div>

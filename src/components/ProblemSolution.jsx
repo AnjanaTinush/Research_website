@@ -28,12 +28,23 @@ const ProblemSolution = () => {
           </div>
           
           <div className="flex-1 space-y-8">
-            <h3 className="text-3xl font-bold text-textPrimary">System Architecture & <br /> Workflow Overview</h3>
+            <h3 className="text-3xl font-bold text-textPrimary">The Problem</h3>
             <p className="text-textSecondary text-lg leading-relaxed text-justify">
-              Our solution addresses the limitations of current cloud-native autoscaling by introducing a topology-aware predictive model. 
-              By analyzing microservice dependencies and historic traffic patterns within the Kubernetes cluster, 
-              the system can preemptively scale individual services before bottle-necks occur, 
-              ensuring high availability while minimizing resource overhead in highly dynamic environments.
+              Modern Kubernetes autoscaling relies mainly on CPU and memory metrics, without understanding the nature of incoming traffic. Because of this, systems cannot distinguish between real user demand and abnormal or malicious traffic, often leading to unnecessary scaling, increased costs, and reduced system stability.
+            </p>
+            <p className="text-textSecondary text-lg leading-relaxed text-justify">
+              In addition, existing approaches lack integration between anomaly detection, predictive models, and execution layers. Scaling decisions are made without validating their impact, making systems less reliable in dynamic microservice environments.
+            </p>
+
+            <h3 className="text-3xl font-bold text-textPrimary mt-8">Proposed Solution</h3>
+            <p className="text-textSecondary text-lg leading-relaxed text-justify">
+              To address this, this research proposes a <strong>Threat-Aware Proactive Autoscaling System</strong> that combines multi-layer observability, machine learning, and intelligent validation. The system collects rich metrics across nodes, pods, applications, and service mesh interactions, and uses anomaly detection to filter abnormal traffic before making scaling decisions.
+            </p>
+            <p className="text-textSecondary text-lg leading-relaxed text-justify">
+              A predictive model then forecasts future resource requirements, enabling proactive scaling. Before applying any action, a validation layer tests the decision in a controlled environment and evaluates system stability. Only safe and reliable scaling actions are executed, while unsafe ones are rolled back.
+            </p>
+            <p className="text-textSecondary text-lg leading-relaxed text-justify italic font-medium">
+              This approach ensures smarter, more secure, and efficient autoscaling for modern cloud-native systems.
             </p>
           </div>
         </div>

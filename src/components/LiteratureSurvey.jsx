@@ -8,16 +8,13 @@ const LiteratureSurvey = () => {
           <h2 className="text-4xl font-bold mb-10 text-textPrimary">Literature Survey</h2>
           <div className="space-y-8 text-textSecondary leading-relaxed text-lg text-justify opacity-90">
             <p>
-              Recent research has revealed gaps in coral reef conservation efforts, particularly in integrating advanced methodologies and technologies. In the area of species identification, studies have utilized CNNs and ResNet models to classify corals from images, highlighting the potential of machine learning but underscoring the need for user interaction and geographic information integration for effective conservation.
+              Existing autoscaling solutions in cloud-native environments, such as Kubernetes Horizontal Pod Autoscaler (HPA), primarily depend on reactive metrics like CPU and memory usage. While effective for general scaling, these approaches fail to consider traffic behavior and intent.
             </p>
             <p>
-              In optimizing conservation tasks, reinforcement learning has been demonstrated for scheduling in dynamic environments. The studies indicate a need for frameworks that incorporate real-time feedback and adapt to environmental changes to improve decision-making and resource allocation.
+              Recent research explores predictive autoscaling using time-series models like LSTM, enabling systems to anticipate future demand. However, these approaches still lack security awareness. Parallel work in anomaly detection using machine learning techniques such as Autoencoders, Isolation Forest, and One-Class SVM has shown promise in identifying unusual patterns in network traffic.
             </p>
             <p>
-              Technological advancements are also being employed to enhance the efficiency of conservation strategies. The integration of Geographic Information Systems (GIS), machine learning, and explainable AI has been proposed to optimize resource management and decision-making processes, leading to more effective coral reef restoration.
-            </p>
-            <p>
-              Moreover, the use of Knowledge Graphs in recommendation systems suggests significant potential in improving scholarly paper recommendations through advanced weighting strategies. However, there remains a gap in adapting these systems to real-time changes, highlighting an area for further development in dynamic data integration and adaptive algorithms.
+              Despite these advancements, there is a lack of integration between anomaly detection and autoscaling systems, which creates an opportunity for a more robust and intelligent solution.
             </p>
           </div>
         </div>
