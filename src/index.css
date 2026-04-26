@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #84006A;
+}
+
+body {
+  @apply bg-backgroundDefault text-textPrimary font-sans overflow-x-hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-outfit font-bold;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-800;
+}
+
+.section-padding {
+  @apply py-20 px-6 md:px-12 lg:px-24;
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20  rounded-3xl;
+}
+
+.blue-underline {
+  @apply relative inline-block after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-primary;
+}
+
+/* Animations */
+.hover-glow {
+  @apply transition-all duration-300  hover:border-primary/30;
+}
