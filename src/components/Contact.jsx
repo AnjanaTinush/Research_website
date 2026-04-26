@@ -21,7 +21,7 @@ const Contact = () => {
           <div className="space-y-6">
             <div className="group cursor-pointer">
               <p className="text-textSecondary text-xs uppercase tracking-[0.3em] mb-1 opacity-50">Email Address</p>
-              <p className="text-2xl font-bold text-textPrimary group-hover:text-primary transition-colors">coralrevivedeveloper@gmail.com</p>
+              <p className="text-2xl font-bold text-textPrimary group-hover:text-primary transition-colors">dnamiXdeveloper@gmail.com</p>
             </div>
             <div className="group cursor-pointer">
                <p className="text-textSecondary text-xs uppercase tracking-[0.3em] mb-1 opacity-50">Physical Location</p>
