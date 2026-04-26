@@ -7,7 +7,7 @@ import kubernetes from '../assets/technology/kubernates.png';
 import node from '../assets/technology/node.png';
 import python from '../assets/technology/python.png';
 import socket from '../assets/technology/socket.png';
-import Prometheus from '../assets/technology/prometheus.png';
+import Prometheus from '../assets/technology/Prometheus.png';
 import react from '../assets/technology/react.png';
 import istio from '../assets/technology/istio.png';
 import cadvisor from '../assets/technology/cadvisor.png';
