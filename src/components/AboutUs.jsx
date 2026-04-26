@@ -3,51 +3,52 @@ import { Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import supervisorImg from '../assets/aboutus/Suppervisor.jpg';
 import coSupervisorImg from '../assets/aboutus/cosuppervisor.jpg';
-import member1Img from '../assets/aboutus/Member_1.png';
-import member2Img from '../assets/aboutus/Member_2.jpeg';
+import member1Img from '../assets/aboutus/Member_2.jpeg';
+import member2Img from '../assets/aboutus/Member_1.png';
 import member3Img from '../assets/aboutus/Member_3.JPG';
-import member4Img from '../assets/aboutus/Member_4.png';
+import member4Img from '../assets/aboutus/Member_4.jpeg';
 
 const AboutUs = () => {
   const supervisor = {
-    name: 'Dr. Dasuni Senatilleke',
+    name: 'Dr. Dharshana Kasthurirathna',
     role: 'Supervisor',
-    email: 'dasuni.s@sliit.lk', // Placeholder
-    linkedin: '#',
+    email: 'dharshana.k@sliit.lk', // Placeholder
+    linkedin: 'https://www.linkedin.com/in/dharshana-kasthurirathna-a4a3275/',
     image: supervisorImg
   };
 
   const coSupervisor = {
-    name: 'Ms. Archana Rathnayake',
+    name: 'Ms. Hansi De Silva',
     role: 'Co-Supervisor',
-    email: 'archana.r@sliit.lk', // Placeholder
-    linkedin: '#',
+    email: 'hansi.d@sliit.lk', // Placeholder
+    linkedin: 'https://www.linkedin.com/in/hansi-de-silva-03629b79/',
     image: coSupervisorImg
   };
 
   const members = [
     { 
-      name: 'Anjana Tinush', 
-      email: 'it22919014@my.sliit.lk', 
+      name: 'Praveen De Silva', 
+      role: 'Group Leader',
+      email: 'd.praveendesilva@gmail.com', 
       linkedin: 'https://www.linkedin.com/in/dileepa-praveen', 
       image: member1Img 
     },
     { 
-      name: 'Member Name 2', 
-      email: 'member2@example.com', 
-      linkedin: '#', 
+      name: ' Abhishek Peiris', 
+      email: 'abhisheklpeiris@gmail.com', 
+      linkedin: 'https://www.linkedin.com/in/abhishek-peiris?utm_source=share_via&utm_content=profile&utm_medium=member_android', 
       image: member2Img 
     },
     { 
-      name: 'Member Name 3', 
-      email: 'member3@example.com', 
-      linkedin: '#', 
+      name: 'Anjana Tinush', 
+      email: 'anjanatinush222@gmail.com', 
+      linkedin: 'https://www.linkedin.com/in/anjana-tinush-550552281/', 
       image: member3Img 
     },
     { 
-      name: 'Member Name 4', 
-      email: 'member4@example.com', 
-      linkedin: '#', 
+      name: 'Niduka Konara', 
+      email: 'konaraniduka2507@gmail.com', 
+      linkedin: 'https://www.linkedin.com/in/niduka-konara/', 
       image: member4Img 
     },
   ];
@@ -65,13 +66,26 @@ const AboutUs = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">{member.role || 'Member'}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white mb-1">{member.role || ''}</p>
           <h3 className={`${isDetailed ? 'text-2xl' : 'text-xl'} font-bold mb-3`}>{member.name}</h3>
           <div className="flex gap-4">
-            <a href={`mailto:${member.email}`} className="p-2 bg-white/20 hover:bg-primary rounded-full transition-colors backdrop-blur-sm">
+            <motion.a 
+              whileTap={{ scale: 0.9 }}
+              href={`mailto:${member.email}`} 
+              className="p-2 bg-white/20 hover:bg-primary rounded-full transition-colors backdrop-blur-sm relative group/email"
+            >
               <Mail size={18} />
-            </a>
-            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/20 hover:bg-primary rounded-full transition-colors backdrop-blur-sm flex items-center justify-center">
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover/email:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Send Email
+              </span>
+            </motion.a>
+            <motion.a 
+              whileTap={{ scale: 0.9 }}
+              href={member.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2 bg-white/20 hover:bg-primary rounded-full transition-colors backdrop-blur-sm flex items-center justify-center relative group/link"
+            >
               <svg 
                 width="18" 
                 height="18" 
@@ -86,7 +100,10 @@ const AboutUs = () => {
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
-            </a>
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover/link:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                LinkedIn
+              </span>
+            </motion.a>
           </div>
         </div>
       </div>
