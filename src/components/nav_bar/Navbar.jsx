@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LOGO_FOR_WHITE_THEME } from "../assets";
+import { LOGO_FOR_WHITE_THEME } from "../../assets";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

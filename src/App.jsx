@@ -1,7 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
 import LiteratureSurvey from './components/LiteratureSurvey'
 import ResearchGap from './components/ResearchGap'
 import ProblemSolution from './components/ProblemSolution'
@@ -14,6 +12,8 @@ import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
+import Navbar from "./components/nav_bar/Navbar"
+import Hero from "./components/hero/Hero"
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
