@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ProblemSolution from './components/ProblemSolution'
 import ResearchObjectives from './components/ResearchObjectives'
 import Methodology from './components/Methodology'
 import Milestones from './components/Milestones'
@@ -14,6 +13,7 @@ import Navbar from "./components/nav_bar/Navbar"
 import Hero from "./components/hero/Hero"
 import LiteratureSurvey from './components/literature_survey/LiteratureSurvey'
 import ResearchGap from "./components/research_gap/ResearchGap"
+import ProblemSolution from "./components/problem_solution/ProblemSolution"
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
