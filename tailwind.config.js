@@ -15,8 +15,7 @@ export default {
         darkBackgroundVery: "#0F0F0F",
       },
       fontFamily: {
-        sans: ["Open Sans", "sans-serif"],
-        outfit: ["Outfit", "sans-serif"],
+        sans: ['"Open Sans"', 'sans-serif'], // override default
       },
       boxShadow: {
         'glow': '0 0 20px rgba(132, 0, 106, 0.1)',

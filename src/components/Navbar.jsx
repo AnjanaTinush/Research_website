@@ -1,51 +1,78 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { LOGO_FOR_WHITE_THEME } from "../assets";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Methodology', href: '#methodology' },
-    { name: 'Milestones', href: '#milestones' },
-    { name: 'Resources', href: '#resources' },
-    { name: 'Technologies', href: '#technologies' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: "Home", href: "#" },
+    { name: "Methodology", href: "#methodology" },
+    { name: "Milestones", href: "#milestones" },
+    { name: "Resources", href: "#resources" },
+    { name: "Technologies", href: "#technologies" },
+    { name: "About Us", href: "#about" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg  py-4' : 'bg-transparent py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="text-3xl font-black flex items-center tracking-tighter">
-          <span className="text-textPrimary">Dnami</span>
-          <span className="text-primary">X</span>
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-sm py-3"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="flex items-center justify-between px-6 mx-auto max-w-7xl md:px-12">
+        {/* Logo Section */}
+        <div className="flex items-center gap-3">
+          <img
+            src={LOGO_FOR_WHITE_THEME}
+            alt="Logo"
+            className="object-contain w-40 h-9"
+          />
         </div>
-        
-        <div className="hidden md:flex space-x-8">
+
+        {/* Desktop Links */}
+        <div className="items-center hidden gap-8 md:flex">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
-              className="text-sm font-semibold hover:text-primary transition-colors text-textSecondary hover:text-textPrimary"
+              className="relative text-sm font-medium text-black transition-all duration-300 hover:text-primary"
             >
               {link.name}
+
+              {/* underline animation */}
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
 
-        <div className="md:hidden">
+        {/* Mobile Menu Button */}
+        <div className="flex items-center md:hidden">
           <button className="text-textPrimary">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
             </svg>
           </button>
         </div>
