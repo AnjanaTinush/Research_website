@@ -27,28 +27,28 @@ const ResearchGap = () => {
 
   return (
     <section id="gap" className="section-padding bg-surfaceLight">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16">
-          <span className="blue-underline text-textPrimary">Research Gap</span>
+      <div className="mx-auto max-w-7xl">
+        <h2 className="mb-16 text-4xl font-bold">
+          <span className="text-3xl text-textPrimary">Research Gap</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {gaps.map((gap) => (
             <motion.div 
               key={gap.id} 
               whileHover={{ scale: 1.02, translateY: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:border-primary/20 transition-all group cursor-default"
+              className="p-8 transition-all bg-white border border-gray-100 shadow-sm cursor-default rounded-3xl hover:border-primary/20 group"
             >
               <div className="flex items-start gap-6">
-                <span className="text-4xl font-black text-primary/20 group-hover:text-primary/40 transition-colors">
+                <span className="text-4xl font-black transition-colors text-primary group-hover:text-primary/40">
                   {gap.id}
                 </span>
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-textPrimary leading-tight">
+                  <h3 className="text-2xl font-bold leading-tight text-textPrimary">
                     {gap.title}
                   </h3>
-                  <p className="text-textSecondary text-lg leading-relaxed text-justify">
+                  <p className="text-lg leading-relaxed text-justify text-textSecondary">
                     {gap.content}
                   </p>
                 </div>
