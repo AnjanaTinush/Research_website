@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Milestones from './components/Milestones'
 import Resources from './components/Resources'
 import Technologies from './components/Technologies'
 import AboutUs from './components/AboutUs'
@@ -14,6 +13,7 @@ import ResearchGap from "./components/research_gap/ResearchGap"
 import ProblemSolution from "./components/problem_solution/ProblemSolution"
 import ResearchObjectives from "./components/objectives/ResearchObjectives"
 import Methodology from "./components/methodology/Methodology"
+import Milestones from './components/milestones/Milestones'
 
 
 const sectionVariants = {
