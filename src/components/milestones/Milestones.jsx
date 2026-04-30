@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 
 const MilestoneCard = ({ isLeft, date, title, description, marks, progress }) => {
   return (
-    <div className={`flex w-full mb-32 items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
+    <div className={`flex w-full mb-2 items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -11,21 +11,21 @@ const MilestoneCard = ({ isLeft, date, title, description, marks, progress }) =>
         transition={{ duration: 0.6 }}
         className="w-[45%] flex flex-col items-center"
       >
-        <div className="p-10 rounded-[2.5rem] w-full border bg-white border-primary/20 group relative">
+        <div className="p-8 rounded-3xl w-full border bg-white hover:border-primary group relative">
           <div className="flex justify-between items-start mb-3">
             <p className="font-bold tracking-wider text-primary">
               {date}
             </p>
-            {marks && (
+            {/* {marks && (
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                 {marks} Marks
               </span>
-            )}
+            )} */}
           </div>
           <h4 className="font-bold text-2xl mb-4 text-textPrimary">
             {title}
           </h4>
-          <p className="text-textSecondary opacity-80 leading-relaxed mb-4">
+          <p className="text-black opacity-80 leading-relaxed mb-4">
             {description}
           </p>
           
@@ -76,22 +76,22 @@ const Milestones = () => {
       date: 'September 2025', 
       title: 'Project Proposal', 
       description: 'The Project Proposal outlines the research idea, objectives, and initial approach. Reviewers identify limitations and refine project direction.', 
-      marks: '12',
-      progress: '12%'
+      marks: '0',
+      progress: '10%'
     },
     { 
       date: 'January 2026', 
       title: 'Progress Presentation I', 
       description: 'Evaluates 50% completion. Focuses on identifying gaps, validating design, and ensuring progress aligns with requirements.', 
-      marks: '15',
-      progress: '27%'
+      marks: '0',
+      progress: '50%'
     },
     { 
       date: 'March 2026', 
       title: 'Progress Presentation II', 
       description: 'Reviews 90% completion, including a system demonstration and poster presentation to communicate research contributions.', 
       marks: '18',
-      progress: '37%'
+      progress: '95%'
     },
     { 
       date: 'April 2026', 
@@ -105,43 +105,43 @@ const Milestones = () => {
       title: 'Website Assessment', 
       description: 'Showcases all research aspects, objectives, methodology, and results in a clear and accessible digital format.', 
       marks: '2',
-      progress: '57%'
+      progress: '90%'
     },
     { 
       date: 'May 2026', 
       title: 'Final Presentation & Viva', 
       description: 'Assessment of the complete system and individual technical understanding and overall implementation.', 
       marks: '20',
-      progress: '77%'
+      progress: '98%'
     },
     { 
       date: 'May 2026', 
       title: 'Final Report', 
       description: 'Comprehensive documentation of the entire project including system design, implementation, and evaluation.', 
       marks: '19',
-      progress: '96%'
+      progress: '80%'
     },
     { 
       date: 'May 2026', 
       title: 'Checklist Reports', 
       description: 'Used to track project progress at key stages, particularly at 50% and 90% completion.', 
       marks: '2',
-      progress: '98%'
+      progress: '75%'
     },
     { 
       date: 'May 2026', 
       title: 'Logbook', 
       description: 'Documents project progress throughout the year, including supervisor meetings and group development activities.', 
       marks: '2',
-      progress: '100%'
+      progress: '95%'
     },
   ];
 
   return (
     <section id="milestones" className="py-24 bg-surfaceLight overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-5xl font-black mb-32 text-textPrimary text-center tracking-tighter">
-          PROJECT <span className="text-primary italic">MILESTONES</span>
+        <h2 className="text-4xl mb-32 text-textPrimary text-center tracking-tighter">
+          PROJECT <span className="text-primary italic font-black">MILESTONES</span>
         </h2>
         
         <div className="relative">

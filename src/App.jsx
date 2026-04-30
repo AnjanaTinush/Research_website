@@ -1,19 +1,19 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import LiteratureSurvey from './components/LiteratureSurvey'
-import ResearchGap from './components/ResearchGap'
-import ProblemSolution from './components/ProblemSolution'
-import ResearchObjectives from './components/ResearchObjectives'
-import Methodology from './components/Methodology'
-import Milestones from './components/Milestones'
-import Resources from './components/Resources'
-import Technologies from './components/Technologies'
-import AboutUs from './components/AboutUs'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
 import './App.css'
+import Navbar from "./components/nav_bar/Navbar"
+import Hero from "./components/hero/Hero"
+import LiteratureSurvey from './components/literature_survey/LiteratureSurvey'
+import ResearchGap from "./components/research_gap/ResearchGap"
+import ProblemSolution from "./components/problem_solution/ProblemSolution"
+import ResearchObjectives from "./components/objectives/ResearchObjectives"
+import Methodology from "./components/methodology/Methodology"
+import Milestones from './components/milestones/Milestones'
+import Resources from './components/resources/Resources'
+import Technologies from './components/technologies/Technologies'
+import AboutUs from "./components/about_us/AboutUs"
+import Contact from './components/contact_us/Contact'
+import Footer from './components/footer/Footer'
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
