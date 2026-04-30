@@ -1,8 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Resources from './components/Resources'
-import Technologies from './components/Technologies'
-import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
@@ -14,6 +11,9 @@ import ProblemSolution from "./components/problem_solution/ProblemSolution"
 import ResearchObjectives from "./components/objectives/ResearchObjectives"
 import Methodology from "./components/methodology/Methodology"
 import Milestones from './components/milestones/Milestones'
+import Resources from './components/resources/Resources'
+import Technologies from './components/technologies/Technologies'
+import AboutUs from "./components/about_us/AboutUs"
 
 
 const sectionVariants = {
