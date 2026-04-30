@@ -51,7 +51,7 @@ const ProblemSolution = () => {
             <h3 className="text-xl font-bold text-textPrimary">
               The Problem
             </h3>
-            <p className="text-lg leading-relaxed text-justify text-textSecondary">
+            <p className="text-lg leading-relaxed text-justify text-black">
               Modern Kubernetes autoscaling depends mainly on CPU and memory
               metrics, without understanding traffic behavior. This makes it
               difficult to distinguish between real demand and abnormal or
@@ -62,7 +62,7 @@ const ProblemSolution = () => {
             <h3 className="mt-8 text-xl font-bold text-textPrimary">
               Proposed Solution
             </h3>
-            <p className="text-lg leading-relaxed text-justify text-textSecondary">
+            <p className="text-lg leading-relaxed text-justify text-black">
               To solve this, the research proposes a Threat-Aware Proactive
               Autoscaling System that combines multi-layer metrics, anomaly
               detection, and predictive modeling. Scaling decisions are validated

@@ -9,13 +9,13 @@ const ObjectiveCard = ({ icon: Icon, title, description, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="p-10 glass-card bg-white hover:border-primary/40 hover:bg-white transition-all group flex flex-col h-full w-full"
+      className="p-6 bg-white hover:border-primary transition-all group flex flex-col h-full w-full rounded-3xl"
     >
       <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/10 transition-colors">
         <Icon size={32} className="text-primary group-hover:scale-110 transition-transform" />
       </div>
       <h4 className="text-2xl font-bold mb-4 text-textPrimary">{title}</h4>
-      <p className="text-textSecondary leading-relaxed">{description}</p>
+      <p className="text-black leading-relaxed">{description}</p>
     </motion.div>
   );
 };
@@ -52,8 +52,8 @@ const ResearchObjectives = () => {
   return (
     <section id="objectives" className="section-padding bg-surfaceLight">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-16 px-4">
-          <span className="blue-underline text-textPrimary">Research Objectives</span>
+        <h2 className="text-3xl font-bold mb-16 px-4">
+          <span className="text-textPrimary">Research Objectives</span>
         </h2>
         
         <div className="flex flex-wrap justify-center gap-8 px-4">
