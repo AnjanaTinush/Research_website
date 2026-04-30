@@ -1,7 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
 import './App.css'
 import Navbar from "./components/nav_bar/Navbar"
 import Hero from "./components/hero/Hero"
@@ -14,7 +12,8 @@ import Milestones from './components/milestones/Milestones'
 import Resources from './components/resources/Resources'
 import Technologies from './components/technologies/Technologies'
 import AboutUs from "./components/about_us/AboutUs"
-
+import Contact from './components/contact_us/Contact'
+import Footer from './components/footer/Footer'
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
