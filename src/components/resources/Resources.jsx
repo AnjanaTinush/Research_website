@@ -8,7 +8,14 @@ const ResourceCard = ({
   type,
   action = "Download",
   icon,
+  link,
 }) => {
+  const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div
       whileHover={{ y: -5 }}
@@ -32,7 +39,10 @@ const ResourceCard = ({
 
       {/* Bottom */}
       <div className="flex justify-end">
-        <button className="text-primary font-medium hover:underline">
+        <button
+          onClick={handleClick}
+          className="text-primary font-medium hover:underline"
+        >
           {action}
         </button>
       </div>
@@ -85,18 +95,21 @@ const Resources = () => {
       date: "2024/02/01",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1ayRRIlUjsrDQDa1EG2M-uBRbATJMenxX/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Progress Presentation I",
       date: "2024/05/06",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1YA9gl4x_2gZTq-1Tq8_Djr6kj9cJIk8a/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Progress Presentation II",
       date: "2024/09/11",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1__2OcXygy2pTgBTpXgVTFw6HlKWM5sgF/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Final Presentation",
