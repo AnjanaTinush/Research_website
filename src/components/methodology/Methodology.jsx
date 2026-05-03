@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Database, TrendingUp, ShieldCheck, SearchCode } from "lucide-react";
-import { COM_1 } from "../../assets";
+import { COM_1, COM_3 } from "../../assets";
 
 const MethodologyItem = ({
   title,
@@ -98,7 +98,7 @@ const Methodology = () => {
     {
       title: "Validation and Execution Layer",
       icon: ShieldCheck,
-      image: COM_1,
+      image: COM_3,
       points: [
         "Test Environment: Apply scaling decisions in a controlled test namespace before production.",
         "Chaos Testing: Inject failures (pod crashes, delays, stress) to evaluate system behavior.",

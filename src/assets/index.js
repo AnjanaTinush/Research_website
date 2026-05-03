@@ -3,6 +3,7 @@ import DIAGRAM from "./images/diagram.jpeg";
 import LAP_MOCK from "./images/lap-mock.png";
 import THUMB from "./images/thumb.png";
 import COM_1 from "./images/com_1.svg";
+import COM_3 from "./images/com_3.svg";
 import DOCKER from "./technology/docker.png";
 import GRAFANA from "./technology/grafana.jpg";
 import KUBERNATES from "./technology/kubernates.png";
@@ -30,6 +31,7 @@ export {
   LAP_MOCK,
   THUMB,
   COM_1,
+  COM_3,
   DOCKER,
   GRAFANA,
   KUBERNATES,

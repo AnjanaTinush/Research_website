@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { THUMB } from "../../assets";
 
 const ProblemSolution = () => {
-  const videoUrl =
-    "https://mysliit-my.sharepoint.com/:v:/g/personal/it22919014_my_sliit_lk/IQCQKrj1i00vTLhwafwFIy5aAZYz0BGtQk7hBx2rHBHrSGw";
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <section id="solution" className="section-padding bg-backgroundDefault">
@@ -17,32 +16,44 @@ const ProblemSolution = () => {
           {/* ================= VIDEO SECTION ================= */}
           <div className="flex-1 w-full">
             <div className="relative w-full overflow-hidden bg-gray-100 border border-primary rounded-3xl aspect-video group">
+              {!isPlaying ? (
+                <>
+                  {/* Thumbnail */}
+                  <img
+                    src={THUMB}
+                    alt="Video Thumbnail"
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  />
 
-              {/* Thumbnail */}
-              <img
-                src={THUMB}
-                alt="Video Thumbnail"
-                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-              />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
-
-              {/* Play Button */}
-              <a
-                href={videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute flex items-center justify-center w-20 h-20 transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full shadow-xl left-1/2 top-1/2 hover:scale-110 hover:bg-red-600"
-              >
-                <svg
-                  className="w-10 h-10 ml-1 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </a>
+                  {/* Play Button */}
+                  <button
+                    onClick={() => setIsPlaying(true)}
+                    className="absolute flex items-center justify-center w-20 h-20 transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full shadow-xl left-1/2 top-1/2 hover:scale-110 hover:bg-red-600 focus:outline-none"
+                    aria-label="Play Video"
+                  >
+                    <svg
+                      className="w-10 h-10 ml-1 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </>
+              ) : (
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/X5wvQ6sJ6Y0?autoplay=1"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
           </div>
 
