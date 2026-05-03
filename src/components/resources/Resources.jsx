@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FileText, Presentation } from "lucide-react";
+import bannerPdf from "../../assets/images/Banner.pdf";
 
 const ResourceCard = ({
   title,
@@ -9,9 +10,19 @@ const ResourceCard = ({
   action = "Download",
   icon,
   link,
+  download = false,
 }) => {
   const handleClick = () => {
-    if (link) {
+    if (!link) return;
+
+    if (download) {
+      const a = document.createElement("a");
+      a.href = link;
+      a.download = typeof download === "string" ? download : title;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
       window.open(link, "_blank", "noopener,noreferrer");
     }
   };
@@ -86,6 +97,8 @@ const Resources = () => {
       title: "Poster",
       date: "2024/10/28",
       type: "Group",
+      link: bannerPdf,
+      download: "Research_Poster.pdf",
     },
   ];
 
