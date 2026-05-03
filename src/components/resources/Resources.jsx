@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FileText, Presentation } from "lucide-react";
+import bannerPdf from "../../assets/images/Banner.pdf";
 
 const ResourceCard = ({
   title,
@@ -8,7 +9,24 @@ const ResourceCard = ({
   type,
   action = "Download",
   icon,
+  link,
+  download = false,
 }) => {
+  const handleClick = () => {
+    if (!link) return;
+
+    if (download) {
+      const a = document.createElement("a");
+      a.href = link;
+      a.download = typeof download === "string" ? download : title;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div
       whileHover={{ y: -5 }}
@@ -32,7 +50,10 @@ const ResourceCard = ({
 
       {/* Bottom */}
       <div className="flex justify-end">
-        <button className="text-primary font-medium hover:underline">
+        <button
+          onClick={handleClick}
+          className="text-primary font-medium hover:underline"
+        >
           {action}
         </button>
       </div>
@@ -76,6 +97,8 @@ const Resources = () => {
       title: "Poster",
       date: "2024/10/28",
       type: "Group",
+      link: bannerPdf,
+      download: "Research_Poster.pdf",
     },
   ];
 
@@ -85,18 +108,21 @@ const Resources = () => {
       date: "2024/02/01",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1ayRRIlUjsrDQDa1EG2M-uBRbATJMenxX/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Progress Presentation I",
       date: "2024/05/06",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1YA9gl4x_2gZTq-1Tq8_Djr6kj9cJIk8a/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Progress Presentation II",
       date: "2024/09/11",
       type: "Group",
       action: "View",
+      link: "https://docs.google.com/presentation/d/1__2OcXygy2pTgBTpXgVTFw6HlKWM5sgF/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Final Presentation",
