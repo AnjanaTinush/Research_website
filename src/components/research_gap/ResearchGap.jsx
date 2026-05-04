@@ -38,7 +38,7 @@ const ResearchGap = () => {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {gaps.map((gap) => (
-            <div className="p-8 transition-all bg-white border border-gray-100 cursor-default rounded-3xl hover:border-primary group">
+            <div key={gap.id} className="p-8 transition-all bg-white border border-gray-100 cursor-default rounded-3xl hover:border-primary group">
               <div className="flex items-start gap-6">
                 <span className="text-4xl font-black transition-colors text-primary">
                   {gap.id}

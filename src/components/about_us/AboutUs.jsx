@@ -57,7 +57,7 @@ const AboutUs = () => {
   ];
 
   const MemberCard = ({ member, isDetailed }) => (
-    <div
+    <motion.div
       whileHover={{ y: -10 }}
       className={`bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-primary transition-all group flex flex-col ${isDetailed ? "aspect-auto" : "aspect-square md:aspect-[3/4]"}`}
     >
@@ -118,7 +118,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (

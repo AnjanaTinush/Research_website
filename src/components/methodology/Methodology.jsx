@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Database, TrendingUp, ShieldCheck, SearchCode } from "lucide-react";
-import { COM_1, COM_3 } from "../../assets";
+import { COM_1, COM_3, COM_4 } from "../../assets";
 
 const MethodologyItem = ({
   title,
@@ -109,7 +109,7 @@ const Methodology = () => {
     {
       title: "Anomaly Detection Module",
       icon: SearchCode,
-      image: COM_1,
+      image: COM_4,
       points: [
         "Model Selection: Use unsupervised models such as Autoencoders, Isolation Forest, and One-Class SVM.",
         "Functionality: Detect abnormal or malicious traffic patterns in real time.",
