@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FileText, Presentation } from "lucide-react";
 import bannerPdf from "../../assets/images/Banner.pdf";
-import { li } from "framer-motion/client";
+import { li, link } from "framer-motion/client";
 
 const ResourceCard = ({
   title,
@@ -29,7 +29,7 @@ const ResourceCard = ({
   };
 
   return (
-    <div
+    <motion.div
       whileHover={{ y: -5 }}
       className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col justify-between transition-all hover:border-primary"
     >
@@ -58,7 +58,7 @@ const ResourceCard = ({
           {action}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -90,6 +90,7 @@ const Resources = () => {
       title: "Research Papers",
       date: "2024/09/30",
       type: "Group",
+      link: "https://drive.google.com/drive/folders/1cFv_19Lna3Ah7w3UPr5OasPly4gmTQKi?usp=sharing",
     },
     {
       title: "Final Reports",
