@@ -86,6 +86,7 @@ const Resources = () => {
       title: "Checklist Document II",
       date: "2024/09/11",
       type: "Group",
+      link : "https://drive.google.com/drive/folders/1ramKrHktd8LMOsH_FiHx18kR2vNbxzBe?usp=sharing"
     },
     {
       title: "Research Papers",
