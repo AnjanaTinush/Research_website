@@ -1,61 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [form, setForm] = useState({
+    name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
   const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState({ show: false, message: "", type: "success" });
 
-  // handle input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // Auto-dismiss alert after 5 seconds
+  useEffect(() => {
+    if (alert.show) {
+      const timer = setTimeout(() => {
+        setAlert({ ...alert, show: false });
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [alert.show]);
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
+  const showAlert = (message, type = "success") => {
+    setAlert({ show: true, message, type });
   };
 
-  // handle submit
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        "service_obafwl7", // 🔹 Service ID
-        "template_5vsp91i", // 🔹 Template ID
+    try {
+      await emailjs.send(
+        "service_3t5778m",   // 🔹 Service ID
+        "template_sfiptey",  // 🔹 Template ID
         {
-          from_name: form.email,
-          to_name: "Anjana Tinush",
+          from_name: form.name,
+          to_name: "test",
           from_email: form.email,
-          to_email: "anjanatinush222@gmail.com",
-          subject: form.subject,
+          reply_to: form.email,                // 👈 added: enables reply-to user
+          user_email: form.email,              // 👈 added: extra fallback variable for the template
           message: form.message,
         },
-        "mncx4XFocLsGh5bVP" // 🔹 Public Key
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Message sent successfully!");
-
-          setForm({
-            email: "",
-            subject: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          alert("Something went wrong!");
-        }
+        "V_tnA5e3Rm7vzBY_R"  // 🔹 Public Key
       );
+
+      showAlert("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      showAlert("Something went wrong. Please try again.", "error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -106,6 +107,22 @@ const Contact = () => {
         <div className="flex-1 w-full max-w-xl">
           <div className="bg-white p-10 md:p-8 rounded-3xl border border-white relative">
             <form onSubmit={handleSubmit} className="space-y-8">
+              {/* NAME */}
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest text-black ml-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Enter your name"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 text-textPrimary border border-gray-200 focus:border-primary/50 focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-gray-300"
+                  required
+                />
+              </div>
+
               {/* EMAIL */}
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest text-black ml-2">
@@ -119,21 +136,6 @@ const Contact = () => {
                   placeholder="Enter your email address"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 text-textPrimary border border-gray-200 focus:border-primary/50 focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-gray-300"
                   required
-                />
-              </div>
-
-              {/* SUBJECT */}
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-black ml-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={form.subject}
-                  onChange={handleChange}
-                  placeholder="What is this regarding?"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 text-textPrimary border border-gray-200 focus:border-primary/50 focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-gray-300"
                 />
               </div>
 
@@ -165,6 +167,30 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* SUCCESS/ERROR ALERT */}
+      {alert.show && (
+        <div className="fixed bottom-8 right-8 max-w-sm animate-in slide-in-from-bottom-5 z-50">
+          <div
+            className={`flex items-center gap-4 px-6 py-4 rounded-full text-white font-semibold shadow-lg transition-all ${
+              alert.type === "success"
+                ? "bg-primary"
+                : "bg-red-500"
+            }`}
+          >
+            <span>
+              {alert.type === "success" ? "✓" : "✕"}
+            </span>
+            <span>{alert.message}</span>
+            <button
+              onClick={() => setAlert({ ...alert, show: false })}
+              className="ml-2 text-white/70 hover:text-white transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
