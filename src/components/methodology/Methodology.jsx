@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Database, TrendingUp, ShieldCheck, SearchCode } from "lucide-react";
-import { COM_1, COM_3, COM_4 } from "../../assets";
+import { COM_1, COM_2, COM_3, COM_4 } from "../../assets";
 
 const MethodologyItem = ({
   title,
@@ -88,7 +88,7 @@ const Methodology = () => {
     {
       title: "Predictive Autoscaling Model",
       icon: TrendingUp,
-      image: COM_1,
+      image: COM_2,
       points: [
         "Approach: Apply time-series models such as LSTM to analyze historical workload patterns.",
         "Prediction: Forecast future resource requirements based on traffic behavior and system state.",

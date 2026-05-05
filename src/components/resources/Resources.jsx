@@ -77,14 +77,15 @@ const Resources = () => {
       link: "https://drive.google.com/drive/folders/1A1ZCjQZfKo5BOnGn9ysYmKBxpIXbvgSj?usp=sharing",
     },
     {
-      title: "Status Documents I",
+      title: "Checklist Document I",
       date: "2024/05/06",
-      type: "Individual",
+      type: "Group",
+      link : "https://drive.google.com/drive/folders/1F2gJComVPbFdC38D7dV4tJeQLG4jS2cY?usp=sharing"
     },
     {
-      title: "Status Documents II",
+      title: "Checklist Document II",
       date: "2024/09/11",
-      type: "Individual",
+      type: "Group",
     },
     {
       title: "Research Papers",
