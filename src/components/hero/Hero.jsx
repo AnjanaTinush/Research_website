@@ -27,10 +27,9 @@ const Hero = () => {
         </h1>
 
         <p className="max-w-3xl mx-auto text-lg leading-relaxed text-black md:text-2xl">
-          Topology-Aware Predictive Autoscaling
+         Smart Resource Allocation in Microservices Using AI-Based Predictive Scaling
           <br className="hidden md:block" />
-          for Kubernetes Microservices
-        </p>
+AI-Based Predictive Scaling        </p>
       </motion.div>
 
       {/* SCROLL INDICATOR */}

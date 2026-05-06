@@ -142,6 +142,7 @@ const Resources = () => {
       date: "2024/10/28",
       type: "Group",
       action: "View",
+      link: "https://drive.google.com/file/d/1Q7Vd8eVRtqV6ojT6F9ViR0XK87_jSHaZ/view?usp=sharing",
     },
   ];
 
