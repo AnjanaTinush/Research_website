@@ -89,6 +89,12 @@ const Resources = () => {
       link : "https://drive.google.com/drive/folders/1ramKrHktd8LMOsH_FiHx18kR2vNbxzBe?usp=sharing"
     },
     {
+      title: "Checklist Document III",
+      date: "2024/09/11",
+      type: "Group",
+      link : "https://drive.google.com/drive/folders/1ZH1idX_gEtuZj3nm6q6c8mMmkhuVKIU_?usp=sharing"
+    },
+    {
       title: "Research Papers",
       date: "2024/09/30",
       type: "Group",
@@ -129,7 +135,7 @@ const Resources = () => {
       date: "2024/09/11",
       type: "Group",
       action: "View",
-      link: "https://docs.google.com/presentation/d/1hiYVmHnCGNiI4cs-rweB1g4iggjfw7Lr/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
+      link: "https://docs.google.com/presentation/d/1YA9gl4x_2gZTq-1Tq8_Djr6kj9cJIk8a/edit?usp=sharing&ouid=106479244210891845492&rtpof=true&sd=true",
     },
     {
       title: "Final Presentation",
